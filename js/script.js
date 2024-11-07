@@ -1,20 +1,20 @@
 const form = document.querySelector(`#form`);
 const field = document.querySelector(`#field`);
 const todoWrapper = document.querySelector(`#togos-items`);
-const clearAllButton = document.querySelector(`#clear-all`);
+const clear = document.querySelector(`#clear-all`);
 
-function saveToLocalStorage(todos) {
+function save(todos) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function loadFromLocalStorage() {
+function load() {
   const todos = localStorage.getItem("todos");
   return todos ? JSON.parse(todos) : [];
 }
 
-function renderTodos() {
+function ToDos() {
   todoWrapper.innerHTML = "";
-  const todos = loadFromLocalStorage();
+  const todos = load();
   todos.forEach((todo) => {
     const card = createCard(todo);
     todoWrapper.innerHTML += card;
@@ -50,9 +50,9 @@ function addTodo() {
     name: field.value,
   };
 
-  const todos = loadFromLocalStorage();
+  const todos = load();
   todos.push(todo);
-  saveToLocalStorage(todos);
+  save(todos);
 
   const card = createCard(todo);
   todoWrapper.innerHTML += card;
@@ -60,11 +60,13 @@ function addTodo() {
 }
 
 function deleteTodo(id) {
-  if (confirm("Aniq shu todo ni ochirmoqchimisiz. Keyin uni qaytara olmaysiz")) {
-    const todos = loadFromLocalStorage();
+  if (
+    confirm("Aniq shu todo ni ochirmoqchimisiz. Keyin uni qaytara olmaysiz")
+  ) {
+    const todos = load();
     const update = todos.filter((todo) => todo.id !== id);
-    saveToLocalStorage(update);
-    renderTodos();
+    save(update);
+    ToDos();
   }
 }
 
@@ -75,7 +77,7 @@ function clear() {
     )
   ) {
     localStorage.removeItem("todos");
-    renderTodos();
+    ToDos();
   }
 }
 
@@ -84,6 +86,6 @@ form.addEventListener("submit", function (event) {
   addTodo();
 });
 
-clearAllButton.addEventListener("click", clear);
+clear.addEventListener("click", clear);
 
-window.addEventListener("load", renderTodos);
+window.addEventListener("load", ToDos);
