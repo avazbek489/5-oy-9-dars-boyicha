@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif, Arial;
+}
+
+body {
+    background-color: grey;
+}
+
+.todo {
+    width: 600px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: aqua;
+    margin: 50px auto;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+#clear-all {
+    width: 100px;
+    padding: 10px;
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#clear-all:hover {
+    background-color: #FF4C4C;
+}
+
+#form {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#form input {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#form input:focus {
+    background-color: #f0f8ff;
+    border: 2px solid #add;
+    outline: none;
+}
+
+#form input:active {
+    background-color: #f9f9f9;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#form input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+#form button {
+    width: 18%;
+    background-color: #FF6B6B;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#form button:hover {
+    background-color: #FF4C4C;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+form button:active {
+    transform: translateY(2px);
+}
+
+.todo-item {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.todo-item span {
+    cursor: pointer;
+    color: blue;
+    transition: all 0.3s ease;
+}
+
+.todo-item span:hover {
+    color: #FF4C4C;
+}
